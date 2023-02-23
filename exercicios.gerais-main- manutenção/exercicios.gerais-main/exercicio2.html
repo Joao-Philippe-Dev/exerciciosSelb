@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <title>Cadastro de Contatos Selbetti</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link href="css/style.css" rel="stylesheet" />
+
+  <script src="./Scripts/jquery-1.11.0.min.js"></script>
+  <script src="./Scripts/node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+
+  <script src="./Scripts/bootstrap.min.js"></script>
+</head>
+
+<body class="bd">
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+      <path
+        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+    </symbol>
+    <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+      <path
+        d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+    </symbol>
+    <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+      <path
+        d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+    </symbol>
+  </svg>
+  <form action="" method="POST">
+    <div class="form-group">
+      <div class="main-login">
+        <div class="left-login">
+          <h1>Cadastre Seu Contato<br>E fique por dentro das novidades!</h1>
+          <img src="imagens/53397d37333e938d85ce50d76af215ce.png" class="left-login-image" alt="Logo TechBox">
+        </div>
+        <div class="right-login">
+          <div class="card-login">
+            <div class="textfield">
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <label for="txtNome">Nome:
+              </label>
+              <div id="msgnome"></div>
+              <input type="text" class="form-control" placeholder="Nome" id="txtNome" onblur="validacaoNome(txtNome)" />
+            </div>
+            <div class="textfield">
+              <label for="txbEmail">
+                Email:
+              </label>
+              <div id="msgemail"></div>
+              <input type="text" class="form-control" value="" id="txbEmail" maxlength="60"
+                onblur="validacaoEmail(txbEmail)" placeholder="Email" />
+            </div>
+            <div class="textfield">
+              <label for="txtDT">
+                Data Nascimento:
+              </label>
+              <div id="msgdt"></div>
+              <input type="date" class="form-control" value="" id="txtDT" onblur="validacaoDt()" />
+            </div>
+            <div class="textfield">
+              <label for="txbCPF">
+                CPF: (somente Números)
+              </label>
+              <div id="msgcpf"></div>
+              <input type="text" class="form-control" maxlength="11" onkeyup="somenteNumeros(num)"
+                onblur="validacaoCpf(txbCPF)" value="" id="txbCPF" placeholder="insira seu CPF (somente números)" />
+            </div>
+            <div class="textfield">
+              <label for="txbCidade">
+                Cidade:
+              </label>
+              <input type="text" class="form-control" id="txbCidade" placeholder="Cidade" />
+            </div>
+            <div class="textfield">
+              <label for="txbEstado">
+                Estado:
+              </label>
+              <select id="txbEstado" class="form-control">
+                <option value="Acre - AC">Acre - AC </option>
+                <option value="Amapá - AP">Amapá - AP</option>
+                <option value="Amazonas - AM">Amazonas - AM</option>
+                <option value="Pará - PA">Pará - PA</option>
+                <option value="Rondônia - RO">Rondônia - RO</option>
+                <option value="Roraima - RR">Roraima - RR</option>
+                <option value="Tocantins - TO">Tocantins - TO</option>
+                <option value="Alagoas - AL">Alagoas - AL</option>
+                <option value="Bahia - BA">Bahia - BA</option>
+                <option value="Ceará - CE">Ceará - CE</option>
+                <option value="Maranhão - MA">Maranhão - MA</option>
+                <option value="Paraíba - PB">Paraíba - PB</option>
+                <option value="Pernambuco - PE">Pernambuco - PE</option>
+                <option value="Piauí - PI">Piauí - PI</option>
+                <option value="Rio Grande do Norte - RN">Rio Grande do Norte - RN</option>
+                <option value="Sergipe - SE">Sergipe - SE</option>
+                <option value="Espírito Santo - ES">Espírito Santo - ES</option>
+                <option value="Minas Gerais - MG">Minas Gerais - MG</option>
+                <option value="Rio de Janeiro - RJ">Rio de Janeiro - RJ</option>
+                <option value="São Paulo - SP">São Paulo - SP</option>
+                <option value="Paraná - PR">Paraná - PR</option>
+                <option value="Rio Grande do Sul - RS">Rio Grande do Sul - RS</option>
+                <option value="Santa Catarina - SC">Santa Catarina - SC</option>
+                <option value="Distrito Federal - DF">Distrito Federal - DF</option>
+                <option value="Goiás - GO">Goiás - GO</option>
+                <option value="Mato Grosso - MT">Mato Grosso - MT</option>
+                <option value="Mato Grosso do Sul - MS">Mato Grosso do Sul - MS</option>
+              </select>
+            </div>
+            <div class="textfield">
+              <label for="txbEndereço">
+                Endereço:
+              </label>
+              <input type="text" class="form-control" id="txbEndereco" placeholder="Endereço" />
+              <br>
+            </div>
+
+            <button type="button" id="botaoEditar" class="btn-login" onclick="editarCadastro();">Cadastrar</button></a>
+            <button type="button" id="botaoEditar" class="btn-login" onclick="editarCadastro();">Limpar</button></a>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <center>
+      <br>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-sm-6">
+          <table id="productTable" class="table table-bordered table-condensed table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th class="tt" scope="col">Nome</th>
+                <th scope="col">Email</th>
+                <th scope="col">Data Nas.</th>
+                <th scope="col">CPF</th>
+                <th scope="col">Cidade</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Endereço</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>João Vitor</td>
+                <td>joaophilippe50@gmail.com</td>
+                <td>11/03/2004</td>
+                <td>127.361.769-01</td>
+                <td>Joinville</td>
+                <td>Santa Catarina</td>
+                <td>Rua Plácido Afonso Rausis 185 - 89213600</td>
+                <td>
+                  <div class="btn-group" role="group">
+                    <a role="button" class="btn btn-primary" asp-controller="Contato" asp-action="Editar">Editar</a>
+                    <a role="button" class="btn btn-danger" asp-controller="Contato"
+                      asp-action="ApagarConfirmacao">Apagar</a>
+                  </div>
+                </td>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+      </div>
+    </center>
+    <script>
+      $(document).ready(function () {
+        $('#txbCPF').mask('000.000.000-00', { reverse: true });
+      });
+
+      var editar = null;
+
+      function buttonEditar(ctl) {
+        editar = $(ctl).parents("tr");
+        var cols = editar.children("td");
+
+        $("#txtNome").val($(cols[1]).text());
+        $("#txbEmail").val($(cols[2]).text());
+        $("#txtDT").val($(cols[3]).text());
+        $("#txbCPF").val($(cols[4]).text());
+        $("#txbCidade").val($(cols[5]).text());
+        $("#txbEstado").val($(cols[6]).text());
+        $("#txbEndereco").val($(cols[7]).text());
+
+        $("#botaoEditar").text("Alterar");
+      }
+
+      function editarCadastro() {
+        if ($("#botaoEditar").text() == "Alterar") {
+          editarCadastroTabela();
+        }
+        else {
+          adicionarCadastroTabela();
+        }
+
+        $("#txtNome").focus();
+      }
+
+      function adicionarCadastroTabela() {
+
+        if ($("#productTable tbody").length == 0) {
+          $("#productTable").append("<tbody></tbody>");
+        }
+
+
+        if (txtNome.value.length < 3 || txtDT.value == "" || txbCPF.value.length == 11 || txbCidade.value == "" || txbEndereco.value == "" || validacaoEmail(txbEmail) == false) {
+          alert("Preencha corretamente todos os campos corretamente!");
+        } else {
+          $("#productTable tbody").append(
+            criarNovaLinha());
+          limparFormulario();
+
+
+        }
+      }
+
+      function editarCadastroTabela() {
+
+        $(editar).after(criarNovaLinha());
+
+        $(editar).remove();
+
+        limparFormulario();
+
+        $("#botaoEditar").text("Cadastrar");
+      }
+
+      function criarNovaLinha() {
+        var ret =
+          "<tr>" +
+          "<td>" +
+          "<button type='button' " +
+          "onclick='buttonEditar(this);' " +
+          "class='btn btn-default'>" +
+          "<span class='glyphicon glyphicon-edit' />" +
+          "</button>" +
+          "</td>" +
+          "<td>" + $("#txtNome").val() + "</td>" +
+          "<td>" + $("#txbEmail").val() + "</td>" +
+          "<td>" + $("#txtDT").val() + "</td>" +
+          "<td>" + $("#txbCPF").val() + "</td>" +
+          "<td>" + $("#txbCidade").val() + "</td>" +
+          "<td>" + $("#txbEstado").val() + "</td>" +
+          "<td>" + $("#txbEndereco").val() + "</td>" +
+          "<td>" +
+          "<button type='button' " +
+          "onclick='cadDelete(this);' " +
+          "class='btn btn-default'>" +
+          "<span class='glyphicon glyphicon-remove' />" +
+          "</button>" +
+          "</td>" +
+          "</tr>"
+
+        return ret;
+      }
+
+      function cadDelete(ctl) {
+        if (confirm("Você tem certeza que deseja excluir este registro?")) {
+          $(ctl).parents("tr").remove();
+        } else {
+          return false;
+        }
+
+      }
+
+      function limparFormulario() {
+        $("#txtNome").val("");
+        $("#txbEmail").val("");
+        $("#txtDT").val("");
+        $("#txbCPF").val("");
+        $("#txbCidade").val("");
+        $("#txbEstado").val("");
+        $("#txbEndereco").val("");
+
+      }
+      function somenteNumeros(num) {
+        var er = /[^0-9]/;
+        er.lastIndex = 0;
+        var campo = num;
+        if (er.test(campo.value)) {
+          campo.value = "";
+        }
+      }
+
+      function validacaoEmail(field) {
+        usuario = field.value.substring(0, field.value.indexOf("@"));
+        dominio = field.value.substring(field.value.indexOf("@") + 1, field.value.length);
+
+        if ((usuario.length >= 1) &&
+          (dominio.length >= 3) &&
+          (usuario.search("@") == -1) &&
+          (dominio.search("@") == -1) &&
+          (usuario.search(" ") == -1) &&
+          (dominio.search(" ") == -1) &&
+          (dominio.search(".") != -1) &&
+          (dominio.indexOf(".") >= 1) &&
+          (dominio.lastIndexOf(".") < dominio.length - 1)) {
+          document.getElementById("msgemail").innerHTML = "";
+          return true;
+        }
+        else {
+          document.getElementById("msgemail").innerHTML = "<font color='red'>E-mail inválido </font>";
+          return false
+        }
+      }
+
+      function validacaoCpf() {
+        if (txbCPF.value.length == 14) {
+          document.getElementById("msgcpf").innerHTML = "";
+          return true;
+        } else {
+          document.getElementById("msgcpf").innerHTML = "<font color='red'>CPF inválido </font>";
+          return false;
+        }
+      }
+      function validacaoNome(txtNome) {
+        if (txtNome.value.length < 3) {
+          document.getElementById("msgnome").innerHTML = "<font color='red'>Nome inválido </font>";
+          return false;
+        } else {
+          document.getElementById("msgnome").innerHTML = "";
+          return true;
+        }
+      }
+      function validacaoDt() {
+        if (txtDT.value.length < 10) {
+          document.getElementById("msgdt").innerHTML = "<font color='red'>Data inválida </font>";
+          return false;
+        } else {
+          document.getElementById("msgdt").innerHTML = "";
+          return true;
+        }
+      }
+    </script>
+  </form>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

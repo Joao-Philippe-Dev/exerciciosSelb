@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../Articles-CodeMagazine-master/Articles-CodeMagazine-master/2015-11-Code_Magazine-CRUD_in_HTML/CRUDinHTML/HTMLTableSamples"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "exercicios.gerais"
+	}
+}
